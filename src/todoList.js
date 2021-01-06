@@ -10,14 +10,14 @@ class TodoList {
 
     this.setStorage = this.setStorage.bind(this);
     this.addTodo = this.addTodo.bind(this);
-    this.deleteTodo = this.deleteTodo.bind(this);
+    this.remove = this.remove.bind(this);
   }
 
   setStorage() {
     localStorage.setItem('myTodos', JSON.stringify(this.myTodos));
   }
 
-  deleteTodo(id){
+  remove(id){
     let newTodos = [];
     this.myTodos.map(todo => {
       if(todo.id !== id)

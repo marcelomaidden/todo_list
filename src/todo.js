@@ -15,11 +15,17 @@ class Todo {
 
   static deleteTodo(todoId) {
     let todos = new TodoList();
-    const main = document.querySelector('main');
+    let todo = "";
+    todos.myTodos.map(item => {
+      console.log(item.id)
+      if(item.id === todoId)
+        todo = item;
+    });
+    const project = document.querySelector(`.${todo.project}`);
     const id = `.todo${todoId}`;
-    const todo = document.querySelector(id);
-    main.removeChild(todo);
-    todos.deleteTodo(todoId);
+    const card = document.querySelector(id);
+    project.removeChild(card);
+    todos.remove(todoId);
   }
 
   createCard() {

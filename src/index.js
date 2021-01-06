@@ -28,8 +28,27 @@ function createTodo(event) {
   clearFields();
 }
 
+function hideModal() {
+  const modalClose = document.querySelector('.modal');
+  modalClose.setAttribute('class', 'modal');  
+}
+
+function activeModal() {
+  const modalClose = document.querySelector('.modal');
+  modalClose.setAttribute('class', 'modal is-active');  
+}
+
 const submitButton = document.querySelector('.submit');
 submitButton.addEventListener('click', createTodo, false);
 
 const cancelButton = document.querySelector('.cancel');
 cancelButton.addEventListener('click', clearFields, false);
+
+const cancelProject = document.querySelector('.cancel-project');
+cancelProject.addEventListener('click', hideModal, false);
+
+const modalClose = document.querySelector('.modal-close');
+modalClose.addEventListener('click', hideModal, false);
+
+const modalButton = document.querySelector('.modal-button');
+modalButton.addEventListener('click', activeModal, false);
