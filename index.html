@@ -13,29 +13,6 @@
 
   </header>
   <main>
-    <div class="card">
-      <div class="card-content">
-        <div class="media">
-          <div class="media-left">
-            <figure class="image is-48x48">
-              <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-            </figure>
-          </div>
-          <div class="media-content">
-            <p class="title is-4">John Smith</p>
-            <p class="subtitle is-6">@johnsmith</p>
-          </div>
-        </div>
-    
-        <div class="content">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-          <a href="#">#css</a> <a href="#">#responsive</a>
-          <br>
-          <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-        </div>
-      </div>
-    </div>
     <div class="box todo-add">
       <article class="media">
         <div class="media-content">
@@ -46,7 +23,7 @@
                 <div class="field">
                   <label class="label">Project</label>
                   <div class="control">
-                    <div class="select">
+                    <div class="select project">
                       <select>
                         <option>Select a project</option>
                         <option>Default</option>
@@ -57,25 +34,25 @@
                 <div class="field">
                   <label class="label">Title</label>
                   <div class="control">
-                    <input class="input" type="text" placeholder="Add a title">
+                    <input class="input todo-title" type="text" placeholder="Add a title" />
                   </div>
                 </div>              
                 <div class="field">
                   <label class="label">Description</label>
                   <div class="control">
-                    <input class="input" type="text" placeholder="Add a description">
+                    <input class="input description" type="text" placeholder="Add a description" />
                   </div>
                 </div>  
                 <div class="field">
                   <label class="label">Priority</label>
                   <div class="control">
-                    <input class="input" type="number" min = "1" placeholder="Enter a number greater than 0">
+                    <input class="input priority" type="number" min = "1" placeholder="Enter a number greater than 0" />
                   </div>
                 </div>  
                 <div class="field">
                   <label class="label">Due date</label>
                   <div class="control">
-                    <input class="input" type="date">
+                    <input class="input due-date" type="date" />
                   </div>
                 </div>                                                      
                 <div class="field is-grouped">
