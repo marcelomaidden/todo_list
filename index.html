@@ -38,38 +38,56 @@
     </div>
     <div class="box todo-add">
       <article class="media">
-        <div class="media-left">
-          <figure class="image is-64x64">
-            <img src="https://bulma.io/images/placeholders/128x128.png" alt="Image">
-          </figure>
-        </div>
         <div class="media-content">
           <div class="content">
             <p>
-              <strong>John Smith</strong> <small>@johnsmith</small> <small>31m</small>
+              <strong>Add new Todo</strong>
               <br>
-              Add Todo creation stuff
+                <div class="field">
+                  <label class="label">Project</label>
+                  <div class="control">
+                    <div class="select">
+                      <select>
+                        <option>Select a project</option>
+                        <option>Default</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="field">
+                  <label class="label">Title</label>
+                  <div class="control">
+                    <input class="input" type="text" placeholder="Add a title">
+                  </div>
+                </div>              
+                <div class="field">
+                  <label class="label">Description</label>
+                  <div class="control">
+                    <input class="input" type="text" placeholder="Add a description">
+                  </div>
+                </div>  
+                <div class="field">
+                  <label class="label">Priority</label>
+                  <div class="control">
+                    <input class="input" type="number" min = "1" placeholder="Enter a number greater than 0">
+                  </div>
+                </div>  
+                <div class="field">
+                  <label class="label">Due date</label>
+                  <div class="control">
+                    <input class="input" type="date">
+                  </div>
+                </div>                                                      
+                <div class="field is-grouped">
+                  <div class="control">
+                    <button class="button submit is-link">Submit</button>
+                  </div>
+                  <div class="control">
+                    <button class="button cancel is-link is-light">Cancel</button>
+                  </div>
+                </div>
             </p>
           </div>
-          <nav class="level is-mobile">
-            <div class="level-left">
-              <a class="level-item" aria-label="reply">
-                <span class="icon is-small">
-                  <i class="fas fa-reply" aria-hidden="true"></i>
-                </span>
-              </a>
-              <a class="level-item" aria-label="retweet">
-                <span class="icon is-small">
-                  <i class="fas fa-retweet" aria-hidden="true"></i>
-                </span>
-              </a>
-              <a class="level-item" aria-label="like">
-                <span class="icon is-small">
-                  <i class="fas fa-heart" aria-hidden="true"></i>
-                </span>
-              </a>
-            </div>
-          </nav>
         </div>
       </article>
     </div>
