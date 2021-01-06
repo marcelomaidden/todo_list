@@ -1,27 +1,28 @@
 import Todo from './todo';
 
 function clearFields() {
-  let inputs = document.querySelectorAll('input');
+  const inputs = document.querySelectorAll('input');
   inputs.forEach(input => {
-    input.value = "";
-  })
+    input.value = '';
+  });
 }
 
-function createTodo(event){
+function createTodo(event) {
   event.preventDefault();
-  let project = document.querySelector('.project');
-  let title = document.querySelector('.todo-title');  
-  let description = document.querySelector('.description');
-  let priority = document.querySelector('.priority');
-  let dueDate = document.querySelector('.due-date');
-  let todo = new Todo(project.value, title.value, description.value, 
-    dueDate.value, priority.value);  
+  const project = document.querySelector('.project');
+  const title = document.querySelector('.todo-title');
+  const description = document.querySelector('.description');
+  const priority = document.querySelector('.priority');
+  const dueDate = document.querySelector('.due-date');
+  const todo = new Todo(project.value, title.value, description.value,
+    dueDate.value, priority.value);
+  todo.createCard();
 
   clearFields();
 }
 
-let submit_button = document.querySelector('.submit');
-submit_button.addEventListener("click", createTodo, false);
+const submitButton = document.querySelector('.submit');
+submitButton.addEventListener('click', createTodo, false);
 
-let cancel_button = document.querySelector('.cancel');
-cancel_button.addEventListener("click", clearFields, false);
+const cancelButton = document.querySelector('.cancel');
+cancelButton.addEventListener('click', clearFields, false);
