@@ -5,4 +5,5 @@
   right: 0;
   position: fixed;
   overflow-y: scroll;
+  z-index: 100;
 }
