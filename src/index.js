@@ -1,4 +1,10 @@
+import TodoList from './todoList';
 import Todo from './todo';
+import Projects from './projects';
+
+const projects = new Projects();
+const todoList = new TodoList();
+todoList.listTodos();
 
 function clearFields() {
   const inputs = document.querySelectorAll('input');
@@ -17,6 +23,7 @@ function createTodo(event) {
   const todo = new Todo(project.value, title.value, description.value,
     dueDate.value, priority.value);
   todo.createCard();
+  todoList.addTodo(todo);
 
   clearFields();
 }
