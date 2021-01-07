@@ -37,7 +37,7 @@ class TodoList {
       const {
         project, title, description, priority, dueDate,
       } = todo;
-      const newTodo = new Todo(project, title, description, priority, dueDate);
+      const newTodo = new Todo(project, title, description, dueDate, priority);
       newTodo.createCard();
     });
   }
