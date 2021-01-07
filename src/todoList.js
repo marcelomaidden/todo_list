@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 import Todo from './todo';
 
 class TodoList {
