@@ -8,51 +8,53 @@ projects.listProjects();
 const todoList = new TodoList();
 todoList.listTodos();
 
-function clearFields() {
+const clearFields = () => {
   const inputs = document.querySelectorAll('input');
   inputs.forEach(input => {
     input.value = '';
   });
-}
+};
 
-function createTodo(event) {
+const createTodo = (event) => {
   event.preventDefault();
   const project = document.querySelector('.project');
   const title = document.querySelector('.todo-title');
   const description = document.querySelector('.description');
   const priority = document.querySelector('.priority');
   const dueDate = document.querySelector('.due-date');
-  const todo = new Todo(project.value, title.value, description.value,
+  const todo = new Todo(false, project.value, title.value, description.value,
     dueDate.value, priority.value, false);
-  todo.createCard();
+  todo.card();
   todoList.addTodo(todo);
 
   clearFields();
-}
-function addOptions(value) {
+};
+
+const addOptions = (value) => {
   const select = document.querySelector('.project');
   const option = document.createElement('option');
+  option.setAttribute('value', value);
   option.text = value;
   select.add(option);
-}
+};
 
-function refreshProjects() {
+const refreshProjects = () => {
   const select = document.querySelector('.project');
   select.innerHTML = '';
   projects.myProjects.map(p => addOptions(p.name));
-}
+};
 
-function hideModal() {
+const hideModal = () => {
   const modalClose = document.querySelector('.modal');
   modalClose.setAttribute('class', 'modal');
-}
+};
 
-function activeModal() {
+const activeModal = () => {
   const modalClose = document.querySelector('.modal');
   modalClose.setAttribute('class', 'modal is-active');
-}
+};
 
-function addProject() {
+const addProject = () => {
   const projectName = document.querySelector('.project-name');
   const projectColor = document.querySelector('.project-color');
   const project = new Project(projectName.value, projectColor.value);
@@ -60,7 +62,7 @@ function addProject() {
   addOptions(project.name);
 
   hideModal();
-}
+};
 
 const submitButton = document.querySelector('.submit');
 submitButton.addEventListener('click', createTodo, false);

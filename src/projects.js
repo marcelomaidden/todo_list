@@ -26,7 +26,7 @@ class Projects {
     box.setAttribute('style', `background-color:${color}`);
     const div = document.createElement('div');
     const name = document.createElement('strong');
-    name.innerText = project;
+    name.innerText = project.split('-').join(' ');
     div.appendChild(name);
     box.appendChild(div);
     main.appendChild(box);

@@ -2,14 +2,19 @@
 import TodoList from './todoList';
 
 class Todo {
-  constructor(project, title, description, dueDate, priority, complete) {
-    this.id = Todo.id;
+  constructor(id = false, project, title, description, dueDate, priority, complete) {
+    if (!id) this.id = Todo.id;
+    else {
+      Todo.id = id;
+      this.id = Todo.id;
+    }
+
     this.project = project;
     this.title = title;
     this.description = description;
     this.dueDate = dueDate;
     this.priority = priority;
-    this.createCard = this.createCard.bind(this);
+    this.card = this.card.bind(this);
     this.complete = complete;
 
     Todo.id += 1;
@@ -42,7 +47,7 @@ class Todo {
     todos.remove(todoId);
   }
 
-  createCard() {
+  card() {
     const card = document.createElement('div');
     card.setAttribute('class', `card todo${this.id}`);
 
@@ -117,7 +122,6 @@ class Todo {
     media.appendChild(mediaContent);
     cardContent.appendChild(media);
     card.appendChild(cardContent);
-
     const project = document.querySelector(`.${this.project}`);
     project.appendChild(card);
   }

@@ -35,10 +35,10 @@ class TodoList {
   listTodos() {
     this.myTodos.forEach(todo => {
       const {
-        project, title, description, priority, dueDate, complete,
+        id, project, title, description, priority, dueDate, complete,
       } = todo;
-      const newTodo = new Todo(project, title, description, dueDate, priority, complete);
-      newTodo.createCard();
+      const newTodo = new Todo(id, project, title, description, dueDate, priority, complete);
+      newTodo.card();
     });
   }
 }
