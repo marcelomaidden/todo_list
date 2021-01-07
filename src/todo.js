@@ -1,8 +1,8 @@
-import TodoList from "./todoList";
+import TodoList from './todoList';
 
 class Todo {
   constructor(project, title, description, dueDate, priority) {
-    this.id = Todo.id
+    this.id = Todo.id;
     this.project = project;
     this.title = title;
     this.description = description;
@@ -14,12 +14,10 @@ class Todo {
   }
 
   static deleteTodo(todoId) {
-    let todos = new TodoList();
-    let todo = "";
+    const todos = new TodoList();
+    let todo = '';
     todos.myTodos.map(item => {
-      console.log(item.id)
-      if(item.id === todoId)
-        todo = item;
+      if (item.id === todoId) return todo = item;
     });
     const project = document.querySelector(`.${todo.project}`);
     const id = `.todo${todoId}`;

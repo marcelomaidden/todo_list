@@ -17,11 +17,10 @@ class TodoList {
     localStorage.setItem('myTodos', JSON.stringify(this.myTodos));
   }
 
-  remove(id){
-    let newTodos = [];
+  remove(id) {
+    const newTodos = [];
     this.myTodos.map(todo => {
-      if(todo.id !== id)
-        newTodos.push(todo);
+      if (todo.id !== id) return newTodos.push(todo);
     });
     this.myTodos = newTodos;
     this.setStorage();
@@ -34,11 +33,12 @@ class TodoList {
 
   listTodos() {
     this.myTodos.forEach(todo => {
-      let {project, title, description, priority, dueDate} = todo;
-      let newTodo = new Todo(project, title, description, priority, dueDate);
+      const {
+        project, title, description, priority, dueDate,
+      } = todo;
+      const newTodo = new Todo(project, title, description, priority, dueDate);
       newTodo.createCard();
-    })
-    
+    });
   }
 }
 

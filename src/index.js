@@ -3,6 +3,7 @@ import Todo from './todo';
 import Projects from './projects';
 
 const projects = new Projects();
+projects.listProjects();
 const todoList = new TodoList();
 todoList.listTodos();
 
@@ -30,12 +31,12 @@ function createTodo(event) {
 
 function hideModal() {
   const modalClose = document.querySelector('.modal');
-  modalClose.setAttribute('class', 'modal');  
+  modalClose.setAttribute('class', 'modal');
 }
 
 function activeModal() {
   const modalClose = document.querySelector('.modal');
-  modalClose.setAttribute('class', 'modal is-active');  
+  modalClose.setAttribute('class', 'modal is-active');
 }
 
 const submitButton = document.querySelector('.submit');
