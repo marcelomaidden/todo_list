@@ -39,20 +39,20 @@ class Todo {
 
     const title = document.createElement('p');
     title.setAttribute('class', 'title is-4');
-    title.innerText = this.title;
+    title.innerText = `Title: ${this.title}`;
 
     const description = document.createElement('p');
     description.setAttribute('class', 'subtitle is-6');
-    description.innerText = this.description;
+    description.innerText = `Description: ${this.description}`;
 
     const priority = document.createElement('p');
     priority.setAttribute('class', 'subtitle is-6');
-    priority.innerText = this.priority;
+    priority.innerText = `Priority: ${this.priority}`;
 
 
     const dueDate = document.createElement('p');
     dueDate.setAttribute('class', 'subtitle is-6');
-    dueDate.innerText = this.dueDate;
+    dueDate.innerText = `Due date: ${this.dueDate}`;
 
     const deleteButton = document.createElement('button');
     deleteButton.setAttribute('class', 'button submit is-link');
