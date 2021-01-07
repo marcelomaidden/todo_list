@@ -24,13 +24,20 @@ class Projects {
     const box = document.createElement('div');
     box.setAttribute('class', `box ${project}`);
     box.setAttribute('style', `background-color:${color}`);
+    const name = document.createElement('div');
+    name.innerText = project;
+    box.appendChild(name);
     main.appendChild(box);
   }
 
+  addProject(project) {
+    this.myProjects.push(project);
+    this.setStorage();
+    Projects.createCard(project.name, project.color);
+  }
+
   listProjects() {
-    this.myProjects.map(project => {
-      return Projects.createCard(project.name, project.color);
-    });
+    this.myProjects.map(project => Projects.createCard(project.name, project.color));
   }
 }
 
