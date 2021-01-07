@@ -19,8 +19,8 @@ class TodoList {
 
   remove(id) {
     const newTodos = [];
-    this.myTodos.map(todo => {
-      if (todo.id !== id) return newTodos.push(todo);
+    this.myTodos.forEach(todo => {
+      if (todo.id !== id) newTodos.push(todo);
     });
     this.myTodos = newTodos;
     this.setStorage();

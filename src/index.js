@@ -39,9 +39,7 @@ function addOptions(value) {
 function refreshProjects() {
   const select = document.querySelector('.project');
   select.innerHTML = '';
-  projects.myProjects.map(p => {
-    addOptions(p.name);
-  });
+  projects.myProjects.map(p => addOptions(p.name));
 }
 
 function hideModal() {

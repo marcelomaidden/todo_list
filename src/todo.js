@@ -15,10 +15,7 @@ class Todo {
 
   static deleteTodo(todoId) {
     const todos = new TodoList();
-    let todo = '';
-    todos.myTodos.map(item => {
-      if (item.id === todoId) return todo = item;
-    });
+    const todo = todos.myTodos.filter(item => item.id === todoId)[0];
     const project = document.querySelector(`.${todo.project}`);
     const id = `.todo${todoId}`;
     const card = document.querySelector(id);
