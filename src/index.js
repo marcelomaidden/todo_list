@@ -23,7 +23,7 @@ function createTodo(event) {
   const priority = document.querySelector('.priority');
   const dueDate = document.querySelector('.due-date');
   const todo = new Todo(project.value, title.value, description.value,
-    dueDate.value, priority.value);
+    dueDate.value, priority.value, false);
   todo.createCard();
   todoList.addTodo(todo);
 

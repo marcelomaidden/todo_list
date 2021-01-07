@@ -2,7 +2,7 @@
 import TodoList from './todoList';
 
 class Todo {
-  constructor(project, title, description, dueDate, priority) {
+  constructor(project, title, description, dueDate, priority, complete) {
     this.id = Todo.id;
     this.project = project;
     this.title = title;
@@ -10,6 +10,7 @@ class Todo {
     this.dueDate = dueDate;
     this.priority = priority;
     this.createCard = this.createCard.bind(this);
+    this.complete = complete;
 
     Todo.id += 1;
   }
@@ -54,6 +55,33 @@ class Todo {
     dueDate.setAttribute('class', 'subtitle is-6');
     dueDate.innerText = `Due date: ${this.dueDate}`;
 
+    const labelCheck = document.createElement('label');
+    labelCheck.innerText = ' Mark as complete: ';
+    const check = document.createElement('input');
+    check.setAttribute('type', 'checkbox');
+    check.setAttribute('id', this.id);
+    if (this.complete === true) {
+      check.setAttribute('checked', 'true');
+      card.setAttribute('style', 'background-color: hsl(0, 0%, 86%)');
+    } else card.setAttribute('style', 'background-color: #FFF');
+
+    check.addEventListener('click', () => {
+      const todos = new TodoList();
+      const todo = todos.myTodos.filter(item => item.id === this.id)[0];
+      const cardCheck = document.querySelector(`.todo${todo.id}`);
+      if (todo.complete === true) {
+        cardCheck.setAttribute('style', 'background-color: #FFF');
+        todo.complete = false;
+      } else {
+        todo.complete = true;
+        cardCheck.setAttribute('style', 'background-color: hsl(0, 0%, 86%)');
+      }
+
+      const todoCopy = todo;
+      todos.remove(todo.id);
+      todos.addTodo(todoCopy);
+    }, false);
+
     const deleteButton = document.createElement('button');
     deleteButton.setAttribute('class', 'button submit is-link');
     deleteButton.setAttribute('id', this.id);
@@ -67,6 +95,8 @@ class Todo {
     mediaContent.appendChild(priority);
     mediaContent.appendChild(dueDate);
     mediaContent.appendChild(deleteButton);
+    mediaContent.appendChild(labelCheck);
+    mediaContent.appendChild(check);
     media.appendChild(mediaContent);
     cardContent.appendChild(media);
     card.appendChild(cardContent);
