@@ -15,6 +15,23 @@ class Todo {
     Todo.id += 1;
   }
 
+  static priorityColor(priority) {
+    switch (priority) {
+      case '1':
+        return 'hsl(0, 0%, 100%)';
+      case '2':
+        return 'hsl(171, 100%, 41%)';
+      case '3':
+        return 'hsl(204, 86%, 53%)';
+      case '4':
+        return 'hsl(141, 53%, 53%)';
+      case '5':
+        return 'hsl(348, 100%, 61%)';
+      default:
+        return 'hsl(0, 0%, 100%)';
+    }
+  }
+
   static deleteTodo(todoId) {
     const todos = new TodoList();
     const todo = todos.myTodos.filter(item => item.id === todoId)[0];
@@ -63,14 +80,14 @@ class Todo {
     if (this.complete === true) {
       check.setAttribute('checked', 'true');
       card.setAttribute('style', 'background-color: hsl(0, 0%, 86%)');
-    } else card.setAttribute('style', 'background-color: #FFF');
+    } else card.setAttribute('style', `background-color: ${Todo.priorityColor(this.priority)}`);
 
     check.addEventListener('click', () => {
       const todos = new TodoList();
       const todo = todos.myTodos.filter(item => item.id === this.id)[0];
       const cardCheck = document.querySelector(`.todo${todo.id}`);
       if (todo.complete === true) {
-        cardCheck.setAttribute('style', 'background-color: #FFF');
+        cardCheck.setAttribute('style', `background-color: ${Todo.priorityColor(todo.priority)}`);
         todo.complete = false;
       } else {
         todo.complete = true;

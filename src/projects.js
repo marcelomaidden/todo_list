@@ -24,9 +24,11 @@ class Projects {
     const box = document.createElement('div');
     box.setAttribute('class', `box ${project}`);
     box.setAttribute('style', `background-color:${color}`);
-    const name = document.createElement('div');
+    const div = document.createElement('div');
+    const name = document.createElement('strong');
     name.innerText = project;
-    box.appendChild(name);
+    div.appendChild(name);
+    box.appendChild(div);
     main.appendChild(box);
   }
 
