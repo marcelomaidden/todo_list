@@ -1,4 +1,6 @@
-import TodoList from './todoList';
+import Storage from './storage';
+
+const storage = new Storage();
 
 class Todo {
   constructor(project, title, description, dueDate, priority) {
@@ -14,16 +16,13 @@ class Todo {
   }
 
   static deleteTodo(todoId) {
-    const todos = new TodoList();
-    let todo = '';
-    todos.myTodos.map(item => {
-      if (item.id === todoId) return todo = item;
-    });
+    const todo = storage.findTodo(todoId)[0];
     const project = document.querySelector(`.${todo.project}`);
     const id = `.todo${todoId}`;
     const card = document.querySelector(id);
     project.removeChild(card);
-    todos.remove(todoId);
+
+    storage.removeTodo(todoId);
   }
 
   createCard() {

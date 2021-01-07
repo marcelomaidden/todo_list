@@ -2,11 +2,12 @@ import TodoList from './todoList';
 import Todo from './todo';
 import Projects from './projects';
 import Project from './project';
+import Storage from './storage';
 
 const projects = new Projects();
 projects.listProjects();
-const todoList = new TodoList();
-todoList.listTodos();
+TodoList.list();
+const storage = new Storage();
 
 function clearFields() {
   const inputs = document.querySelectorAll('input');
@@ -25,7 +26,7 @@ function createTodo(event) {
   const todo = new Todo(project.value, title.value, description.value,
     dueDate.value, priority.value);
   todo.createCard();
-  todoList.addTodo(todo);
+  storage.addTodo(todo);
 
   clearFields();
 }
@@ -39,9 +40,7 @@ function addOptions(value) {
 function refreshProjects() {
   const select = document.querySelector('.project');
   select.innerHTML = '';
-  projects.myProjects.map(p => {
-    addOptions(p.name);
-  });
+  storage.myProjects.map(p => addOptions(p.name));
 }
 
 function hideModal() {

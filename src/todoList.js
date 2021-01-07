@@ -1,44 +1,21 @@
+import Storage from './storage';
 import Todo from './todo';
 
+const storage = new Storage();
+
 class TodoList {
-  constructor() {
-    if (localStorage.myTodos) {
-      this.myTodos = JSON.parse(localStorage.myTodos || '[]');
-    } else {
-      this.myTodos = [];
-    }
-
-    this.setStorage = this.setStorage.bind(this);
-    this.addTodo = this.addTodo.bind(this);
-    this.remove = this.remove.bind(this);
-  }
-
-  setStorage() {
-    localStorage.setItem('myTodos', JSON.stringify(this.myTodos));
-  }
-
-  remove(id) {
-    const newTodos = [];
-    this.myTodos.map(todo => {
-      if (todo.id !== id) return newTodos.push(todo);
-    });
-    this.myTodos = newTodos;
-    this.setStorage();
-  }
-
-  addTodo(todo) {
-    this.myTodos.push(todo);
-    this.setStorage();
-  }
-
-  listTodos() {
-    this.myTodos.forEach(todo => {
+  static list() {
+    const refreshIds = [];
+    storage.myTodos.forEach(todo => {
       const {
-        project, title, description, priority, dueDate,
+        project, title, description, dueDate, priority
       } = todo;
-      const newTodo = new Todo(project, title, description, priority, dueDate);
+      const newTodo = new Todo(project, title, description, dueDate, priority);
       newTodo.createCard();
+      refreshIds.push(newTodo);
     });
+    storage.myTodos = refreshIds;
+    storage.setStorage();
   }
 }
 
