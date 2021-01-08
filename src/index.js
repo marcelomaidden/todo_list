@@ -15,6 +15,23 @@ const clearFields = () => {
   });
 };
 
+const validTodo = (fields) => {
+  let valid = true;
+  const divErrors = document.querySelector('.todo-errors');
+  divErrors.innerHTML = '';
+  fields.forEach(field => {
+    if (!field.value.length) {
+      const error = document.createElement('p');
+      error.setAttribute('class', 'help is-danger');
+      error.innerHTML = `${field.name} can't be empty`;
+      divErrors.appendChild(error);
+      divErrors.setAttribute('style', 'border: 2px solid red');
+      valid = valid && false;
+    }
+  });
+  return valid;
+};
+
 const createTodo = (event) => {
   event.preventDefault();
   const project = document.querySelector('.project');
@@ -22,12 +39,14 @@ const createTodo = (event) => {
   const description = document.querySelector('.description');
   const priority = document.querySelector('.priority');
   const dueDate = document.querySelector('.due-date');
-  const todo = new Todo(false, project.value, title.value, description.value,
-    dueDate.value, priority.value, false);
-  todo.card();
-  todoList.addTodo(todo);
+  if (validTodo([project, title, description, priority, dueDate])) {
+    const todo = new Todo(false, project.value, title.value, description.value,
+      dueDate.value, priority.value, false);
+    todo.card();
+    todoList.addTodo(todo);
 
-  clearFields();
+    clearFields();
+  }
 };
 
 const addOptions = (value) => {
@@ -56,12 +75,23 @@ const activeModal = () => {
 
 const addProject = () => {
   const projectName = document.querySelector('.project-name');
-  const projectColor = document.querySelector('.project-color');
-  const project = new Project(projectName.value, projectColor.value);
-  projects.addProject(project);
-  addOptions(project.name);
 
-  hideModal();
+  if (!projectName.value.length) {
+    const divErrors = document.querySelector('.project-errors');
+    divErrors.innerHTML = '';
+    const error = document.createElement('p');
+    error.setAttribute('class', 'help is-danger');
+    error.innerHTML = "Project name can't be empty";
+    divErrors.setAttribute('style', 'border: 2px solid red');
+    divErrors.appendChild(error);
+  } else {
+    const projectColor = document.querySelector('.project-color');
+    const project = new Project(projectName.value, projectColor.value);
+    projects.addProject(project);
+    addOptions(project.name);
+
+    hideModal();
+  }
 };
 
 const submitButton = document.querySelector('.submit');

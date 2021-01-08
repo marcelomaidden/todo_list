@@ -11,9 +11,6 @@
 </head>
 
 <body>
-  <header>
-
-  </header>
   <main>
     <div class="box todo-add">
       <article class="media">
@@ -40,26 +37,27 @@
               <div class="field">
                 <label class="label">Title</label>
                 <div class="control">
-                  <input class="input todo-title" type="text" placeholder="Add a title" />
+                  <input class="input todo-title" type="text" name = "Title" placeholder="Add a title" />
                 </div>
               </div>
               <div class="field">
                 <label class="label">Description</label>
                 <div class="control">
-                  <input class="input description" type="text" placeholder="Add a description" />
+                  <input class="input description" type="text" name = "Description" 
+                  placeholder="Add a description" />
                 </div>
               </div>
               <div class="field">
                 <label class="label">Priority</label>
                 <div class="control">
-                  <input class="input priority" type="number" min="1" max = "5" 
-                  placeholder="Priority (1 to 5)" />
+                  <input class="input priority" type="number" min="1" max="5" 
+                  name = "Priority" placeholder="Priority (1 to 5)" />
                 </div>
               </div>
               <div class="field">
                 <label class="label">Due date</label>
                 <div class="control">
-                  <input class="input due-date" type="date" />
+                  <input class="input due-date" name = "Due date" type="date" />
                 </div>
               </div>
               <div class="field is-grouped">
@@ -71,6 +69,9 @@
                 </div>
               </div>
             </p>
+            <div class="todo-errors">
+
+            </div>
           </div>
         </div>
       </article>
@@ -103,13 +104,14 @@
                   <button class="button cancel-project is-link is-light">Cancel</button>
                 </div>
               </div>
+              <div class="project-errors">
+
+              </div>
             </p>
           </div>
         </div>
       </div>
       <button class="modal-close is-large" aria-label="close"></button>
-
-      </div>
     </div>
   </main>
   <script type="text/javascript" src="main.js"></script>
