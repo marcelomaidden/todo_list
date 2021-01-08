@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo List APP</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+  <link rel="stylesheet" href="stylesheet/main.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+</head>
+
+<body>
+  <main>
+    <div class="box todo-add">
+      <article class="media">
+        <div class="media-content">
+          <div class="content">
+            <p>
+              <strong>Add new Todo</strong>
+              <br>
+              <div class="field">
+                <label class="label">Project</label>
+                <div class="control">
+                  <div class="select">
+                    <select class='project'>
+                      <option>Select a project</option>
+                      <option value='default'>Default</option>
+                    </select>
+                    <button class="button is-primary modal-button" data-target="modal" aria-haspopup="true"
+                      title='Create new project'>
+                      <i class='fa fa-plus'></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="field">
+                <label class="label">Title</label>
+                <div class="control">
+                  <input class="input todo-title" type="text" name = "Title" placeholder="Add a title" />
+                </div>
+              </div>
+              <div class="field">
+                <label class="label">Description</label>
+                <div class="control">
+                  <input class="input description" type="text" name = "Description" 
+                  placeholder="Add a description" />
+                </div>
+              </div>
+              <div class="field">
+                <label class="label">Priority</label>
+                <div class="control">
+                  <input class="input priority" type="number" min="1" max="5" 
+                  name = "Priority" placeholder="Priority (1 to 5)" />
+                </div>
+              </div>
+              <div class="field">
+                <label class="label">Due date</label>
+                <div class="control">
+                  <input class="input due-date" name = "Due date" type="date" />
+                </div>
+              </div>
+              <div class="field is-grouped">
+                <div class="control">
+                  <button class="button submit is-link">Submit</button>
+                </div>
+                <div class="control">
+                  <button class="button cancel is-link is-light">Cancel</button>
+                </div>
+              </div>
+            </p>
+            <div class="todo-errors">
+
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+    <div class="modal">
+      <div class="modal-background"></div>
+      <div class="modal-content">
+        <div class="box">
+          <div class="content">
+            <p>
+              <strong>Add new Project</strong>
+              <br>
+              <div class="field">
+                <label class="label">Name</label>
+                <div class="control">
+                  <input class="input project-name" type="text" placeholder="Add a name" />
+                </div>
+              </div>
+              <div class="field">
+                <label class="label">Color</label>
+                <div class="control">
+                  <input class="input project-color" type="color" placeholder="Add a color" />
+                </div>
+              </div>
+              <div class="field is-grouped">
+                <div class="control">
+                  <button class="button submit-project is-link">Submit</button>
+                </div>
+                <div class="control">
+                  <button class="button cancel-project is-link is-light">Cancel</button>
+                </div>
+              </div>
+              <div class="project-errors">
+
+              </div>
+            </p>
+          </div>
+        </div>
+      </div>
+      <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+  </main>
+  <script type="text/javascript" src="main.js"></script>
+</body>
+
+</html>
