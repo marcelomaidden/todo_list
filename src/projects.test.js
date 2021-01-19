@@ -10,3 +10,13 @@ test('Newly created project owns default project', () => {
   expect(projects.myProjects).toEqual(expect.arrayContaining(expected));
 })
 
+test('Add a project to myProjects', () => {
+  const expected = new Project('JavaScript', 'hsl(204, 86%, 53%)');
+  const defProject = new Project('default', 'hsl(204, 86%, 53%)')
+  expect(() => {
+    projects.addProject(expected)
+  }).toThrow("Cannot read property 'appendChild' of null");
+
+  expect(projects.myProjects).toEqual(expect.arrayContaining([defProject, expected]))
+})
+
