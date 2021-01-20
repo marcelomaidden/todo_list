@@ -7,7 +7,8 @@
 [![GitHub2 Pull Requests](https://img.shields.io/badge/GitHub-Pull%20Requests-blue)](https://github.com/marcelomaidden/todo_list/pulls)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
 </div>
-<p align="center">Todo list in JavaScript is a practice project, which includes managing the dynamically DOM manipulation. I used Javascript, HTML5, CSS3, Bulma, Font Awesome to implement it.</p>
+<p align="center">Todo list in JavaScript is a practice project, which includes managing the dynamically DOM manipulation. I used Javascript, HTML5, CSS3, Bulma, Font Awesome to implement it.
+Each class on the project was tested using red, green and refactor TDD approach with Jest test suite.</p>
 
 
 ## Live Link Demo
@@ -51,6 +52,10 @@ To make any change,
   - Change directory to dist folder
   - Open index.html on your preferred browser
 
+## Test
+
+  - In order to test the project run `npm run test` on your terminal
+
 ## Author
 
 👤  **Marcelo Fernandes**
@@ -81,6 +86,7 @@ Give a ⭐️ if you like this project!
 - W3Schools
 - Font Awesome
 - Javascript
+- Jest
 
 ## 📝 License
 
