@@ -20,3 +20,9 @@ test('Add a project to myProjects', () => {
   expect(projects.myProjects).toEqual(expect.arrayContaining([defProject, expected]))
 })
 
+test('Throw error when listProjects are called', () => {
+  expect(()=>{
+    projects.listProjects()
+  }).toThrow()
+})
+
