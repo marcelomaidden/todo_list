@@ -1,8 +1,8 @@
-const { TestScheduler } = require("jest");
+/* eslint-disable no-new */
 import Project from './project';
 
 test('Create a project object', () => {
-  let project = new Project('Tests in JavaScript', '#FFF');
+  const project = new Project('Tests in JavaScript', '#FFF');
   expect(project).toBeInstanceOf(Project);
 });
 
