@@ -1,7 +1,5 @@
 import Project from './project';
 
-const main = document.querySelector('main');
-
 class Projects {
   constructor() {
     if (localStorage.myProjects) {
@@ -21,6 +19,7 @@ class Projects {
   }
 
   static createCard(project, color) {
+    const main = document.querySelector('main');
     const box = document.createElement('div');
     box.setAttribute('class', `box ${project}`);
     box.setAttribute('style', `background-color:${color}`);
