@@ -22,6 +22,7 @@ Each class on the project was tested using red, green and refactor TDD approach 
 - Bulma
 - JavaScript
 - Font Awesome
+- Jest
 
 
 ## Getting Started
